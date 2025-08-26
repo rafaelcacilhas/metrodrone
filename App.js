@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, View, Button, Text, TextInput } from 'react-native';
+import { useAudioPlayer } from 'expo-audio';
+
+import Metronome from './components/Metronome';
+import Drone from './components/Drone';
+
+import { Colors } from './constants/Colors';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.container}>        
+      <Metronome />
+      <Drone />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: Colors.slate,
+
+    display: 'flex',
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
 });
